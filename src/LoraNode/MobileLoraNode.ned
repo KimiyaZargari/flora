@@ -15,13 +15,13 @@
 
 package loranetwork.LoraNode;
 
-import inet.mobility.static.StationaryMobility;
+import inet.mobility.single.RandomWPMobility;
 import inet.networklayer.common.InterfaceTable;
 import loranetwork.LoRa.LoRaNic;
-import loranetwork.LoRaApp.MobileLoRaApp;
+import loranetwork.LoRaApp.SimpleLoRaApp;
 
 
-module LoRaNode
+module MobileLoRaNode
 {
     parameters:
         string deploymentType = default("");
@@ -35,13 +35,13 @@ module LoRaNode
         interfaceTable: InterfaceTable {
             @display("p=30,26");
         }
-        mobility: StationaryMobility {
+        mobility: RandomWPMobility {
             @display("p=24,88");
         }
         LoRaNic: LoRaNic {
             @display("p=137,239");
         }
-        SimpleLoRaApp: MobileLoRaApp {
+        SimpleLoRaApp: SimpleLoRaApp {
             @display("p=137,32");
         }
     connections allowunconnected:
